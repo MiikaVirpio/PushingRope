@@ -1,6 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://b4dujqy6sqb57"]
 
 [ext_resource type="Texture2D" uid="uid://dirdhoi00tdlp" path="res://Assets/Sprites/FX/Liekki.png" id="1_vjh7m"]
+[ext_resource type="AudioStream" uid="uid://bowtdjb3eg7xx" path="res://Assets/Sound/01.wav" id="2_jw0vq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jw0vq"]
 atlas = ExtResource("1_vjh7m")
@@ -115,8 +116,6 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_vjh7m"]
-
 [node name="Liekki" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -127,4 +126,4 @@ frame = 14
 frame_progress = 1.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamWAV_vjh7m")
+stream = ExtResource("2_jw0vq")
