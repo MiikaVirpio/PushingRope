@@ -1,0 +1,275 @@
+[gd_scene load_steps=5 format=3 uid="uid://nhfiyaqhurdo"]
+
+[ext_resource type="PackedScene" uid="uid://bbv4qkk5p7p6e" path="res://Scenes/rope_segment.tscn" id="1_qawu5"]
+[ext_resource type="PackedScene" uid="uid://ce5hleq7pjvjv" path="res://Scenes/rope_joint.tscn" id="2_wytdi"]
+[ext_resource type="PackedScene" uid="uid://x2riw8a35vm6" path="res://Scenes/player1.tscn" id="3_7ll2l"]
+[ext_resource type="PackedScene" uid="uid://cebboy6hgycxi" path="res://Scenes/player2.tscn" id="4_x7pqb"]
+
+[node name="Rope" type="Node2D"]
+
+[node name="RopeSegment_1" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(-27, 0)
+
+[node name="RopeJoint_1" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(-23, 0)
+node_a = NodePath("../RopeSegment_1")
+node_b = NodePath("../RopeSegment_2")
+
+[node name="RopeSegment_2" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(-19, 0)
+
+[node name="RopeJoint_2" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(-15, 0)
+node_a = NodePath("../RopeSegment_2")
+node_b = NodePath("../RopeSegment_3")
+
+[node name="RopeSegment_3" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(-11, 0)
+
+[node name="RopeJoint_3" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(-7, 0)
+node_a = NodePath("../RopeSegment_3")
+node_b = NodePath("../RopeSegment_4")
+
+[node name="RopeSegment_4" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(-3, 0)
+
+[node name="RopeJoint_4" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(1, 0)
+node_a = NodePath("../RopeSegment_4")
+node_b = NodePath("../RopeSegment_5")
+
+[node name="RopeSegment_5" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(5, 0)
+
+[node name="RopeJoint_5" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(9, 0)
+node_a = NodePath("../RopeSegment_5")
+node_b = NodePath("../RopeSegment_6")
+
+[node name="RopeSegment_6" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(13, 0)
+
+[node name="RopeJoint_6" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(17, 0)
+node_a = NodePath("../RopeSegment_6")
+node_b = NodePath("../RopeSegment_7")
+
+[node name="RopeSegment_7" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(21, 0)
+
+[node name="RopeJoint_7" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(25, 0)
+node_a = NodePath("../RopeSegment_7")
+node_b = NodePath("../RopeSegment_8")
+
+[node name="RopeSegment_8" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(29, 0)
+
+[node name="RopeJoint_8" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(33, 0)
+node_a = NodePath("../RopeSegment_8")
+node_b = NodePath("../RopeSegment_9")
+
+[node name="RopeSegment_9" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(37, 0)
+
+[node name="RopeJoint_9" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(41, 0)
+node_a = NodePath("../RopeSegment_9")
+node_b = NodePath("../RopeSegment_10")
+
+[node name="RopeSegment_10" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(45, 0)
+
+[node name="RopeJoint_10" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(49, 0)
+node_a = NodePath("../RopeSegment_10")
+node_b = NodePath("../RopeSegment_11")
+
+[node name="RopeSegment_11" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(53, 0)
+
+[node name="RopeJoint_11" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(57, 0)
+node_a = NodePath("../RopeSegment_11")
+node_b = NodePath("../RopeSegment_12")
+
+[node name="RopeSegment_12" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(61, 0)
+
+[node name="RopeJoint_12" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(65, 0)
+node_a = NodePath("../RopeSegment_12")
+node_b = NodePath("../RopeSegment_13")
+
+[node name="RopeSegment_13" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(69, 0)
+
+[node name="RopeJoint_13" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(73, 0)
+node_a = NodePath("../RopeSegment_13")
+node_b = NodePath("../RopeSegment_14")
+
+[node name="RopeSegment_14" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(77, 0)
+
+[node name="RopeJoint_14" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(81, 0)
+node_a = NodePath("../RopeSegment_14")
+node_b = NodePath("../RopeSegment_15")
+
+[node name="RopeSegment_15" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(85, 0)
+
+[node name="RopeJoint_15" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(89, 0)
+node_a = NodePath("../RopeSegment_15")
+node_b = NodePath("../RopeSegment_16")
+
+[node name="RopeSegment_16" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(93, 0)
+
+[node name="RopeJoint_16" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(97, 0)
+node_a = NodePath("../RopeSegment_16")
+node_b = NodePath("../RopeSegment_17")
+
+[node name="RopeSegment_17" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(101, 0)
+
+[node name="RopeJoint_17" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(105, 0)
+node_a = NodePath("../RopeSegment_17")
+node_b = NodePath("../RopeSegment_18")
+
+[node name="RopeSegment_18" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(109, 0)
+
+[node name="RopeJoint_18" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(113, 0)
+node_a = NodePath("../RopeSegment_18")
+node_b = NodePath("../RopeSegment_19")
+
+[node name="RopeSegment_19" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(117, 0)
+
+[node name="RopeJoint_19" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(121, 0)
+node_a = NodePath("../RopeSegment_19")
+node_b = NodePath("../RopeSegment_20")
+
+[node name="RopeSegment_20" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(125, 0)
+
+[node name="RopeJoint_20" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(129, 0)
+node_a = NodePath("../RopeSegment_20")
+node_b = NodePath("../RopeSegment_21")
+
+[node name="RopeSegment_21" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(133, 0)
+
+[node name="RopeJoint_21" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(137, 0)
+node_a = NodePath("../RopeSegment_21")
+node_b = NodePath("../RopeSegment_22")
+
+[node name="RopeSegment_22" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(141, 0)
+
+[node name="RopeJoint_22" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(145, 0)
+node_a = NodePath("../RopeSegment_22")
+node_b = NodePath("../RopeSegment_23")
+
+[node name="RopeSegment_23" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(149, 0)
+
+[node name="RopeJoint_23" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(153, 0)
+node_a = NodePath("../RopeSegment_23")
+node_b = NodePath("../RopeSegment_24")
+
+[node name="RopeSegment_24" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(157, 0)
+
+[node name="RopeJoint_24" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(161, 0)
+node_a = NodePath("../RopeSegment_24")
+node_b = NodePath("../RopeSegment_25")
+
+[node name="RopeSegment_25" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(165, 0)
+
+[node name="RopeJoint_25" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(169, 0)
+node_a = NodePath("../RopeSegment_25")
+node_b = NodePath("../RopeSegment_26")
+
+[node name="RopeSegment_26" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(173, 0)
+
+[node name="RopeJoint_26" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(177, 0)
+node_a = NodePath("../RopeSegment_26")
+node_b = NodePath("../RopeSegment_27")
+
+[node name="RopeSegment_27" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(181, 0)
+
+[node name="RopeJoint_27" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(185, 0)
+node_a = NodePath("../RopeSegment_27")
+node_b = NodePath("../RopeSegment_28")
+
+[node name="RopeSegment_28" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(189, 0)
+
+[node name="RopeJoint_28" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(193, 0)
+node_a = NodePath("../RopeSegment_28")
+node_b = NodePath("../RopeSegment_29")
+
+[node name="RopeSegment_29" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(197, 0)
+
+[node name="RopeJoint_29" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(201, 0)
+node_a = NodePath("../RopeSegment_29")
+node_b = NodePath("../RopeSegment_30")
+
+[node name="RopeSegment_30" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(205, 0)
+
+[node name="RopeJoint_30" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(209, 0)
+node_a = NodePath("../RopeSegment_30")
+node_b = NodePath("../RopeSegment_31")
+
+[node name="RopeSegment_31" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(213, 0)
+
+[node name="RopeJoint_31" parent="." instance=ExtResource("2_wytdi")]
+position = Vector2(217, 0)
+node_a = NodePath("../RopeSegment_31")
+node_b = NodePath("../RopeSegment_32")
+
+[node name="RopeSegment_32" parent="." instance=ExtResource("1_qawu5")]
+position = Vector2(221, 0)
+
+[node name="Player1" parent="." instance=ExtResource("3_7ll2l")]
+position = Vector2(-31, 0)
+
+[node name="Player1Joint" type="PinJoint2D" parent="."]
+position = Vector2(-31, 0)
+node_a = NodePath("../Player1")
+node_b = NodePath("../RopeSegment_1")
+
+[node name="Player2" parent="." instance=ExtResource("4_x7pqb")]
+position = Vector2(225, 0)
+
+[node name="Player2Joint" type="PinJoint2D" parent="."]
+position = Vector2(225, 0)
+node_a = NodePath("../RopeSegment_32")
+node_b = NodePath("../Player2")
