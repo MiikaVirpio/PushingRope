@@ -7,15 +7,18 @@ enum STATES {IDLE,WALKING,JUMPING,HANGING}
 @export var player_id := "p1"
 # Onready variables
 # Variables
-var move_force := 10000.0
-var jump_force := 5000.0
+var move_force := Configs.MOVE_FORCE
+var jump_force := Configs.JUMP_FORCE
 var player_state := STATES.IDLE
 
 # Custom functions
 
 # Internal functions
 func _ready() -> void:
-	pass
+	# Set values from configs
+	mass = Configs.PLAYER_MASS
+	physics_material_override.friction = Configs.PLAYER_FRICTION
+	linear_damp = Configs.PLAYER_DAMP
 
 
 func _process(delta: float) -> void:
@@ -39,11 +42,11 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	var horizontal_velocity = abs(linear_velocity.x)
 	var vertical_velocity = abs(linear_velocity.y)
 	
-	if player_state == STATES.JUMPING and vertical_velocity < 10:
-		if horizontal_velocity < 0.5:
+	if player_state == STATES.JUMPING and vertical_velocity < Configs.V_VELO_LIMIT:
+		if horizontal_velocity < Configs.H_VELO_LIMIT:
 			player_state = STATES.IDLE
 		else:
 			player_state = STATES.WALKING
-	
-	if player_state == STATES.WALKING and horizontal_velocity < 0.5:
+
+	if player_state == STATES.WALKING and horizontal_velocity < Configs.H_VELO_LIMIT:
 		player_state = STATES.IDLE
