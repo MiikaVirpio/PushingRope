@@ -10,6 +10,7 @@ enum STATES {IDLE,WALKING,JUMPING,HANGING}
 var move_force := Configs.MOVE_FORCE
 var jump_force := Configs.JUMP_FORCE
 var player_state := STATES.IDLE
+@onready var animated_sprite = $Animation
 
 # Custom functions
 
@@ -47,6 +48,11 @@ func _integrate_forces(_state: PhysicsDirectBodyState2D) -> void:
 	if player_state == STATES.WALKING and horizontal_velocity < Configs.H_VELO_LIMIT:
 		player_state = STATES.IDLE
 
+
+func _process(delta: float) -> void:
+	if player_state == STATES.WALKING:
+		# DO ANIMATION
+		animated_sprite.play("Idle")
 
 func _on_body_entered(body: Node) -> void:
 	# You touch lava, you die
