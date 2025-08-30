@@ -4,6 +4,7 @@ class_name World
 # Constant parameters
 const Rope = preload("res://Scenes/rope.tscn")
 const Liekki = preload("res://Scenes/liekki.tscn")
+const YouDied = preload("res://Scenes/you_died.tscn")
 # Export variables
 # Onready variables
 @onready var camera: Camera2D = $Camera
@@ -22,16 +23,24 @@ var rope_location: Vector2
 func death(death_position: Vector2) -> void:
 	# Play Liekki FX
 	var liekki = Liekki.instantiate()
+	var you_died = YouDied.instantiate()
 	add_child(liekki)
 	liekki.global_position = death_position
 	# Start timer
+	add_child(you_died)
+	
+	you_died.global_position = camera.global_position
+
+	
 	if death_timer.is_stopped():
 		death_timer.start()
 	
 
 func _on_death_timer_timeout() -> void:
-	# Remove any Liekki scenes
-	get_tree().call_group("Liekki", "queue_free")
+	# Remove unnecessary nodes
+	for child in get_children():
+		if child.name in ["Liekki", "YouDied"]:
+			child.queue_free()
 
 	# Reset camera and lava position
 	camera.global_position = camera_location

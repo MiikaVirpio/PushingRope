@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bj3jwj6lt1rsb"]
+[gd_scene load_steps=4 format=3 uid="uid://baiur630rv0e5"]
 
-[ext_resource type="Script" uid="uid://8j3we28g783q" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
 [ext_resource type="FontFile" uid="uid://c345q55smt63v" path="res://Assets/Kenney High Square.ttf" id="1_28flt"]
-[ext_resource type="PackedScene" uid="uid://dsc7pkq5leoqs" path="res://Scenes/lava.tscn" id="2_48xlc"]
+[ext_resource type="PackedScene" uid="uid://pxbb675w5j7e" path="res://Scenes/lava.tscn" id="2_48xlc"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3

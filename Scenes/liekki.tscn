@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b4dujqy6sqb57"]
+[gd_scene load_steps=19 format=3 uid="uid://sgbd0dklh7hs"]
 
 [ext_resource type="Texture2D" uid="uid://dirdhoi00tdlp" path="res://Assets/Sprites/FX/Liekki.png" id="1_vjh7m"]
 [ext_resource type="AudioStream" uid="uid://bowtdjb3eg7xx" path="res://Assets/Sound/01.wav" id="2_jw0vq"]
