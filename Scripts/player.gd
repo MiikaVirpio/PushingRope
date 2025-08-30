@@ -21,11 +21,7 @@ func _ready() -> void:
 	linear_damp = Configs.PLAYER_DAMP
 
 
-func _process(delta: float) -> void:
-	pass
-
-
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	# Apply horizontal force
 	if Input.is_action_pressed(player_id + "left"):
 		apply_central_force(Vector2(-move_force, 0))
@@ -38,7 +34,7 @@ func _physics_process(delta: float) -> void:
 		player_state = STATES.JUMPING
 
 
-func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
+func _integrate_forces(_state: PhysicsDirectBodyState2D) -> void:
 	var horizontal_velocity = abs(linear_velocity.x)
 	var vertical_velocity = abs(linear_velocity.y)
 	

@@ -25,10 +25,14 @@ func reset_level() -> void:
 	camera_timer = 0.0
 
 	# Reset rope position
-	rope.queue_free()
+	rope.call_deferred("queue_free")
+	call_deferred("spawn_players")
+
+
+func spawn_players() -> void:
 	rope = Rope.instantiate()
-	rope.global_position = rope_location
 	add_child(rope)
+	rope.global_position = rope_location
 
 
 # Internal functions
