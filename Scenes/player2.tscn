@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cebboy6hgycxi"]
+
+[ext_resource type="Script" uid="uid://rcewdy5oggtn" path="res://Scripts/player.gd" id="1_x88p5"]
+[ext_resource type="Texture2D" uid="uid://dh10vndqgp7f8" path="res://Assets/Sprites/Player/Player2.png" id="2_x88p5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cvnsp"]
+friction = 0.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rliju"]
+radius = 8.0
+height = 24.0
+
+[node name="Player2" type="RigidBody2D"]
+collision_layer = 2
+mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_cvnsp")
+lock_rotation = true
+linear_damp = 4.0
+script = ExtResource("1_x88p5")
+player_id = "p2"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -11)
+texture = ExtResource("2_x88p5")
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+shape = SubResource("CapsuleShape2D_rliju")
