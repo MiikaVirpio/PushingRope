@@ -2,7 +2,7 @@ extends RigidBody2D
 class_name Player
 
 # Constant parameters
-enum STATES {IDLE,WALKING,JUMPING,HANGING}
+enum STATES {IDLE,WALKING,JUMPING,HANGING, ONAIR}
 # Export variables
 @export var player_id := "p1"
 # Onready variables
@@ -47,12 +47,21 @@ func _integrate_forces(_state: PhysicsDirectBodyState2D) -> void:
 
 	if player_state == STATES.WALKING and horizontal_velocity < Configs.H_VELO_LIMIT:
 		player_state = STATES.IDLE
+	if player_state == STATES.IDLE and horizontal_velocity > Configs.H_VELO_LIMIT:
+		player_state = STATES.WALKING
 
 
 func _process(delta: float) -> void:
-	if player_state == STATES.WALKING:
-		# DO ANIMATION
-		animated_sprite.play("Idle")
+	match player_state:
+		STATES.IDLE: 
+			animated_sprite.play("Idle")
+
+		STATES.WALKING:
+			animated_sprite.play("Walk")
+			animated_sprite.flip_h = sign(linear_velocity.x) < 0
+				
+
+
 
 func _on_body_entered(body: Node) -> void:
 	# You touch lava, you die

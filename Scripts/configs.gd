@@ -6,7 +6,7 @@ extends Node
 const MOVE_FORCE := 10000.0
 const JUMP_FORCE := 5000.0
 const V_VELO_LIMIT := 2.0
-const H_VELO_LIMIT := 0.5
+const H_VELO_LIMIT := 20.5
 const PLAYER_MASS := 10.0
 const PLAYER_FRICTION := 0.1
 const PLAYER_DAMP := 4.0
