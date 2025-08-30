@@ -3,11 +3,13 @@ class_name World
 
 # Constant parameters
 const Rope = preload("res://Scenes/rope.tscn")
+const Liekki = preload("res://Scenes/liekki.tscn")
 # Export variables
 # Onready variables
 @onready var camera: Camera2D = $Camera
 @onready var rope: Node2D = $Rope
 @onready var lava: Node2D = $Lava
+@onready var death_timer: Timer = $DeathTimer
 # Variables
 var camera_location: Vector2
 var camera_speed := Configs.CAMERA_SPEED
@@ -17,7 +19,20 @@ var rope_location: Vector2
 
 # Custom functions
 
-func reset_level() -> void:
+func death(death_position: Vector2) -> void:
+	# Play Liekki FX
+	var liekki = Liekki.instantiate()
+	add_child(liekki)
+	liekki.global_position = death_position
+	# Start timer
+	if death_timer.is_stopped():
+		death_timer.start()
+	
+
+func _on_death_timer_timeout() -> void:
+	# Remove any Liekki scenes
+	get_tree().call_group("Liekki", "queue_free")
+
 	# Reset camera and lava position
 	camera.global_position = camera_location
 	lava.global_position.y = camera.global_position.y + lava_offset

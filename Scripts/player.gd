@@ -33,6 +33,7 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed(player_id + "jump") and player_state in [STATES.IDLE, STATES.WALKING]:
 		apply_central_impulse(Vector2(0, -jump_force))
 		player_state = STATES.JUMPING
+		animated_sprite.play("Jump")
 
 
 func _integrate_forces(_state: PhysicsDirectBodyState2D) -> void:
@@ -42,30 +43,29 @@ func _integrate_forces(_state: PhysicsDirectBodyState2D) -> void:
 	if player_state == STATES.JUMPING and vertical_velocity < Configs.V_VELO_LIMIT:
 		if horizontal_velocity < Configs.H_VELO_LIMIT:
 			player_state = STATES.IDLE
+			animated_sprite.play("Idle")
 		else:
 			player_state = STATES.WALKING
+			animated_sprite.play("Walk")
 
 	if player_state == STATES.WALKING and horizontal_velocity < Configs.H_VELO_LIMIT:
 		player_state = STATES.IDLE
+		animated_sprite.play("Idle")
 	if player_state == STATES.IDLE and horizontal_velocity > Configs.H_VELO_LIMIT:
 		player_state = STATES.WALKING
+		animated_sprite.play("Walk")
 
 
-func _process(delta: float) -> void:
-	match player_state:
-		STATES.IDLE: 
-			animated_sprite.play("Idle")
+func _process(_delta: float) -> void:
+	if player_state == STATES.WALKING:
+		animated_sprite.flip_h = sign(linear_velocity.x) < 0
 
-		STATES.WALKING:
-			animated_sprite.play("Walk")
-			animated_sprite.flip_h = sign(linear_velocity.x) < 0
-		
-		STATES.JUMPING:
-			animated_sprite.play("Jump")
 
 
 
 func _on_body_entered(body: Node) -> void:
 	# You touch lava, you die
 	if body.name == "LavaTileMap":
-		get_tree().root.get_node("World").reset_level()
+		var death_position = global_position
+		queue_free()
+		get_tree().root.get_node("World").death(death_position)
