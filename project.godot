@@ -58,6 +58,13 @@ p2jump={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Map"
+2d_physics/layer_2="Players"
+2d_physics/layer_3="Rope"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.146479, 0.149063, 0.17713, 1)
