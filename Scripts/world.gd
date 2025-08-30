@@ -24,10 +24,10 @@ func death(death_position: Vector2) -> void:
 	# Play Liekki FX
 	var liekki = Liekki.instantiate()
 	var you_died = YouDied.instantiate()
-	add_child(liekki)
+	add_child(liekki, true)
 	liekki.global_position = death_position
 	# Start timer
-	add_child(you_died)
+	add_child(you_died, true)
 	
 	you_died.global_position = camera.global_position
 
@@ -37,11 +37,6 @@ func death(death_position: Vector2) -> void:
 	
 
 func _on_death_timer_timeout() -> void:
-	# Remove unnecessary nodes
-	for child in get_children():
-		if child.name in ["Liekki", "YouDied"]:
-			child.queue_free()
-
 	# Reset camera and lava position
 	camera.global_position = camera_location
 	lava.global_position.y = camera.global_position.y + lava_offset
@@ -53,6 +48,13 @@ func _on_death_timer_timeout() -> void:
 
 
 func spawn_players() -> void:
+	# Remove unnecessary nodes
+	var children = get_children()
+	for child in children:
+		if child.name.begins_with("Liekki"):
+			child.queue_free()
+		if child.name.begins_with("YouDied"):
+			child.queue_free()
 	rope.queue_free()
 	rope = Rope.instantiate()
 	add_child(rope)
