@@ -2,7 +2,7 @@ extends RigidBody2D
 class_name Player
 
 # Constant parameters
-enum STATES {IDLE,WALKING,JUMPING,HANGING, ONAIR}
+enum STATES {IDLE,WALKING,JUMPING,HANGING}
 # Export variables
 @export var player_id := "p1"
 # Onready variables
@@ -59,7 +59,9 @@ func _process(delta: float) -> void:
 		STATES.WALKING:
 			animated_sprite.play("Walk")
 			animated_sprite.flip_h = sign(linear_velocity.x) < 0
-				
+		
+		STATES.JUMPING:
+			animated_sprite.play("Jump")
 
 
 

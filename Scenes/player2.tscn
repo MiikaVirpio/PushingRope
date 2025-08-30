@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cebboy6hgycxi"]
+[gd_scene load_steps=25 format=3 uid="uid://cebboy6hgycxi"]
 
 [ext_resource type="Script" uid="uid://rcewdy5oggtn" path="res://Scripts/player.gd" id="1_x88p5"]
 [ext_resource type="Texture2D" uid="uid://r07vds3iklcc" path="res://Assets/Sprites/Player/Player2-Sheet.png" id="2_x88p5"]
@@ -53,6 +53,18 @@ region = Rect2(320, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_csrft"]
 atlas = ExtResource("2_x88p5")
 region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydb2d"]
+atlas = ExtResource("2_x88p5")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0iqc"]
+atlas = ExtResource("2_x88p5")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cugjo"]
+atlas = ExtResource("2_x88p5")
+region = Rect2(64, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x88p5"]
 atlas = ExtResource("2_x88p5")
@@ -115,6 +127,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ydb2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0iqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cugjo")
+}],
+"loop": false,
+"name": &"Jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_x88p5")
 }, {
 "duration": 1.0,
@@ -150,7 +176,7 @@ player_id = "p2"
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_b30ec")
-animation = &"Walk"
+animation = &"Jump"
 autoplay = "Idle"
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
