@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dh10vndqgp7f8" path="res://Assets/Sprites/Player/Player2.png" id="2_x88p5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cvnsp"]
-friction = 0.0
+friction = 0.1
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rliju"]
 radius = 8.0

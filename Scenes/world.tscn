@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=4 uid="uid://4l614iapfxrg"]
 
 [ext_resource type="Texture2D" uid="uid://duusw3ipiq5g1" path="res://Assets/Tilemap_level-export.png" id="1_a02cp"]
-[ext_resource type="PackedScene" path="res://Scenes/rope.tscn" id="2_go701"]
+[ext_resource type="PackedScene" uid="uid://nhfiyaqhurdo" path="res://Scenes/rope.tscn" id="2_go701"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_go701"]
 texture = ExtResource("1_a02cp")

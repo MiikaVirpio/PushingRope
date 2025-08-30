@@ -8,7 +8,7 @@ enum STATES {IDLE,WALKING,JUMPING,HANGING}
 # Onready variables
 # Variables
 var move_force := 10000.0
-var jump_force := 10000.0
+var jump_force := 5000.0
 var player_state := STATES.IDLE
 
 # Custom functions
