@@ -50,3 +50,9 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 
 	if player_state == STATES.WALKING and horizontal_velocity < Configs.H_VELO_LIMIT:
 		player_state = STATES.IDLE
+
+
+func _on_body_entered(body: Node) -> void:
+	# You touch lava, you die
+	if body.name == "LavaTileMap":
+		get_tree().root.get_node("World").reset_level()
