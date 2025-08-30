@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbv4qkk5p7p6e"]
+[gd_scene load_steps=5 format=3 uid="uid://bbv4qkk5p7p6e"]
 
+[ext_resource type="Script" uid="uid://b27545ujwtoqh" path="res://Scripts/rope_segment.gd" id="1_1u4fo"]
 [ext_resource type="Texture2D" uid="uid://j3febm0idiss" path="res://Assets/Sprites/Rope/rope.png" id="1_ivtn0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_30uo8"]
@@ -16,6 +17,7 @@ physics_material_override = SubResource("PhysicsMaterial_30uo8")
 inertia = 17.5
 linear_damp = 4.081
 angular_damp = 11.121
+script = ExtResource("1_1u4fo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ivtn0")
