@@ -10,10 +10,12 @@ size = Vector2(8, 2)
 
 [node name="RopeSegment" type="RigidBody2D"]
 collision_layer = 4
-mass = 0.2
+collision_mask = 0
+mass = 0.055
 physics_material_override = SubResource("PhysicsMaterial_30uo8")
 inertia = 17.5
-angular_damp = 5.0
+linear_damp = 4.081
+angular_damp = 11.121
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ivtn0")
