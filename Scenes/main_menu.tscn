@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj3jwj6lt1rsb"]
+
+[ext_resource type="Script" uid="uid://8j3we28g783q" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
+[ext_resource type="FontFile" uid="uid://c345q55smt63v" path="res://Assets/Kenney High Square.ttf" id="1_28flt"]
+[ext_resource type="PackedScene" uid="uid://dsc7pkq5leoqs" path="res://Scenes/lava.tscn" id="2_48xlc"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("1_1ehe0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 46
+alignment = 1
+
+[node name="Headline" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_28flt")
+theme_override_font_sizes/font_size = 256
+text = "Pushing Rope"
+horizontal_alignment = 1
+
+[node name="Tip" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_28flt")
+theme_override_font_sizes/font_size = 64
+text = "     P1: W,A,S,D                              P2: LEFT, RIGHT, UP, DOWN"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_28flt")
+theme_override_font_sizes/font_size = 100
+text = " Start"
+
+[node name="Lava" parent="." instance=ExtResource("2_48xlc")]
+position = Vector2(-254, 1080)
+scale = Vector2(4, 4)
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
