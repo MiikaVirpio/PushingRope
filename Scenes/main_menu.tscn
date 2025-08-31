@@ -1,8 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://baiur630rv0e5"]
+[gd_scene load_steps=6 format=3 uid="uid://baiur630rv0e5"]
 
-[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
+[ext_resource type="Script" uid="uid://8j3we28g783q" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
 [ext_resource type="FontFile" uid="uid://c345q55smt63v" path="res://Assets/Kenney High Square.ttf" id="1_28flt"]
-[ext_resource type="PackedScene" uid="uid://pxbb675w5j7e" path="res://Scenes/lava.tscn" id="2_48xlc"]
+[ext_resource type="PackedScene" uid="uid://dsc7pkq5leoqs" path="res://Scenes/lava.tscn" id="2_48xlc"]
+[ext_resource type="Texture2D" uid="uid://dgw1va28qj6d4" path="res://Assets/SourceArt/RopeParallax.png" id="2_ce3w2"]
+
+[sub_resource type="Environment" id="Environment_ce3w2"]
+background_mode = 3
+tonemap_mode = 4
+tonemap_exposure = 0.83
+glow_enabled = true
+glow_intensity = 1.64
+glow_strength = 0.73
+glow_bloom = 0.35
+glow_blend_mode = 0
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -10,6 +21,14 @@ anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 script = ExtResource("1_1ehe0")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ce3w2")
+
+[node name="RopeParallax" type="Sprite2D" parent="."]
+position = Vector2(960, -840)
+scale = Vector2(4, 4)
+texture = ExtResource("2_ce3w2")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
