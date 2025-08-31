@@ -4,7 +4,7 @@ extends Node
 
 ## Player configs
 const MOVE_FORCE := 10000.0
-const JUMP_FORCE := 5000.0
+const JUMP_FORCE := 5125.0
 const V_VELO_LIMIT := 2.0
 const H_VELO_LIMIT := 20.5
 const PLAYER_MASS := 10.0
