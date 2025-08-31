@@ -22,3 +22,5 @@ mono_crash.*.json
 *.als
 *.adg
 *.asd
+
+.vscode/
