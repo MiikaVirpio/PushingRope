@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://4l614iapfxrg"]
+[gd_scene load_steps=10 format=4 uid="uid://4l614iapfxrg"]
 
 [ext_resource type="Script" uid="uid://bayie7xr7s4g3" path="res://Scripts/world.gd" id="1_8j60k"]
 [ext_resource type="Texture2D" uid="uid://duusw3ipiq5g1" path="res://Assets/Tilemap_level-export.png" id="1_a02cp"]
 [ext_resource type="Texture2D" uid="uid://dgw1va28qj6d4" path="res://Assets/SourceArt/RopeParallax.png" id="2_5ukr8"]
 [ext_resource type="PackedScene" uid="uid://dsc7pkq5leoqs" path="res://Scenes/lava.tscn" id="2_fo5ed"]
 [ext_resource type="PackedScene" uid="uid://nhfiyaqhurdo" path="res://Scenes/rope.tscn" id="2_go701"]
+[ext_resource type="AudioStream" uid="uid://hr3qf3rc7s7e" path="res://Assets/Sound/Song_Gameplay.mp3" id="6_5ukr8"]
 
 [sub_resource type="Environment" id="Environment_8j60k"]
 background_mode = 3
@@ -193,5 +194,10 @@ position = Vector2(375, 849)
 [node name="DeathTimer" type="Timer" parent="."]
 wait_time = 1.914
 one_shot = true
+
+[node name="SongGameplay" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_5ukr8")
+autoplay = true
+parameters/looping = true
 
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
