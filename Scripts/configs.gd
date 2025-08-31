@@ -19,6 +19,6 @@ const ROPE_SOFTNESS := 0.0
 const ROPE_BIAS := 0.4
 
 # Camera configs
-const CAMERA_SPEED := 5.0
-const CAMERA_ACCELERATION := 0.1
+const CAMERA_SPEED := 7.0
+const CAMERA_ACCELERATION := 0.5
 const CAMERA_DELAY := 3.0
