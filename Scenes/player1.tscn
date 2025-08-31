@@ -175,8 +175,10 @@ script = ExtResource("1_ndhuy")
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_5s486")
-animation = &"Jump"
+animation = &"Walk"
 autoplay = "Idle"
+frame = 2
+frame_progress = 0.767978
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
