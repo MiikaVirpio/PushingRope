@@ -23,4 +23,4 @@ const CAMERA_ACCELERATION := 0.5
 const CAMERA_DELAY := 3.0
 
 # Cheat configs
-const SPAWN_POINT := 1
+const SPAWN_POINT := 3
