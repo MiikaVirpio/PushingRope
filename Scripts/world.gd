@@ -20,6 +20,7 @@ const YouWon = preload("res://Scenes/you_won.tscn")
 @onready var camera_point_2: Marker2D = $SpawnPoints/CameraPoint2
 @onready var spawn_point_3: Marker2D = $SpawnPoints/SpawnPoint3
 @onready var camera_point_3: Marker2D = $SpawnPoints/CameraPoint3
+@onready var world_environment: WorldEnvironment = $WorldEnvironment
 # Variables
 var camera_location: Vector2
 var camera_speed := Configs.CAMERA_SPEED
@@ -80,12 +81,14 @@ func spawn_players() -> void:
 	song_gameplay_intro.play()
 	song_gameplay.volume_db = 0.0
 	dead = false
+	won = false
+	world_environment.environment.tonemap_exposure = 0.8
 
 
 func win() -> void:
 	var you_won = YouWon.instantiate()
 	add_child(you_won)
-	you_won.global_position = camera.global_position
+	you_won.global_position = Vector2(477.0, -75.0)
 	won = true
 
 
@@ -107,13 +110,15 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if not won:
-		if camera_timer < Configs.CAMERA_DELAY:
-			camera_timer += delta
-		else:
-			camera_speed = camera_speed + Configs.CAMERA_ACCELERATION * delta
-			camera.global_position.y -= camera_speed * delta
-			lava.global_position.y = camera.global_position.y + lava_offset
+	if camera_timer < Configs.CAMERA_DELAY:
+		camera_timer += delta
+	elif not won or camera.global_position.y > -70.0:
+		camera_speed = camera_speed + Configs.CAMERA_ACCELERATION * delta
+		camera.global_position.y -= camera_speed * delta
+		lava.global_position.y = camera.global_position.y + lava_offset
+
+	if won:
+		world_environment.environment.tonemap_exposure = lerp(world_environment.environment.tonemap_exposure, 0.5, 0.005)
 
 	# Bind ESC to close game
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -132,3 +137,8 @@ func _process(delta: float) -> void:
 
 func _on_song_gameplay_intro_finished() -> void:
 	song_gameplay.play()
+
+
+func _on_win_area_body_entered(body: Node2D) -> void:
+	if not won:
+		win()

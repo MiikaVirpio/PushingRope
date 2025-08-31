@@ -12,7 +12,7 @@
 [sub_resource type="Environment" id="Environment_8j60k"]
 background_mode = 3
 tonemap_mode = 4
-tonemap_exposure = 0.83
+tonemap_exposure = 0.8
 glow_enabled = true
 glow_intensity = 1.64
 glow_strength = 0.73
@@ -339,7 +339,8 @@ stream = ExtResource("7_o06y3")
 autoplay = true
 
 [node name="WinArea" type="Area2D" parent="."]
-position = Vector2(473, 5)
+position = Vector2(473, -6)
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea"]
 position = Vector2(0, -6)
@@ -367,3 +368,4 @@ position = Vector2(480, 84)
 
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
 [connection signal="finished" from="SongGameplayIntro" to="." method="_on_song_gameplay_intro_finished"]
+[connection signal="body_entered" from="WinArea" to="." method="_on_win_area_body_entered"]
