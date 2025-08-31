@@ -29,6 +29,7 @@ var lava_offset: float
 var rope_location: Vector2
 var dead: bool = false
 var won: bool = false
+var finished_player: String
 
 
 # Custom functions
@@ -83,6 +84,7 @@ func spawn_players() -> void:
 	dead = false
 	won = false
 	world_environment.environment.tonemap_exposure = 0.8
+	finished_player = ""
 
 
 func win() -> void:
@@ -123,12 +125,8 @@ func _process(delta: float) -> void:
 	# Bind ESC to close game
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
-	
-	# Bind TAB to fake win
-	if Input.is_action_just_pressed("ui_focus_next"):
-		win()
 
-	# If dead, fade out music in 2 secs
+	# If dead or won, fade out music in 2 secs
 	if dead or won:
 		song_gameplay.volume_db -= 10*delta
 		if song_gameplay.volume_db < -79:
@@ -140,5 +138,7 @@ func _on_song_gameplay_intro_finished() -> void:
 
 
 func _on_win_area_body_entered(body: Node2D) -> void:
-	if not won:
+	if not won and finished_player not in ["", body.name]:
 		win()
+	else:
+		finished_player = body.name
