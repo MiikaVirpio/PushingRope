@@ -1,8 +1,8 @@
 extends Path2D
 
 @export var loop : bool
-@export var speed : float
-@export var speed_scale : float
+@export var speed = 10
+@export var speed_scale = 2
 @onready var path = $PathFollow2D
 @onready var animation = $AnimationPlayer
 

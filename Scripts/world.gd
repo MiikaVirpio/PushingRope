@@ -30,9 +30,10 @@ func death(death_position: Vector2) -> void:
 	var you_died = YouDied.instantiate()
 	add_child(liekki, true)
 	liekki.global_position = death_position
-	# Start timer
-	add_child(you_died, true)
+	if not dead:
+		add_child(you_died, true)
 	
+	# Start timer
 	you_died.global_position = camera.global_position
 
 	dead = true
