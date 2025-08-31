@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://8j3we28g783q" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
 [ext_resource type="FontFile" uid="uid://c345q55smt63v" path="res://Assets/Kenney High Square.ttf" id="1_28flt"]
-[ext_resource type="PackedScene" uid="uid://dsc7pkq5leoqs" path="res://Scenes/lava.tscn" id="2_48xlc"]
+[ext_resource type="PackedScene" uid="uid://pxbb675w5j7e" path="res://Scenes/lava.tscn" id="2_48xlc"]
 [ext_resource type="Texture2D" uid="uid://dgw1va28qj6d4" path="res://Assets/SourceArt/RopeParallax.png" id="2_ce3w2"]
 [ext_resource type="AudioStream" uid="uid://c33ehvhbmt3ox" path="res://Assets/Sound/Song_Intro.mp3" id="5_n45e2"]
 
@@ -68,7 +68,7 @@ theme_override_font_sizes/font_size = 100
 text = " Start"
 
 [node name="Lava" parent="." instance=ExtResource("2_48xlc")]
-position = Vector2(-254, 1080)
+position = Vector2(-254, 1085)
 scale = Vector2(4, 4)
 
 [node name="SongIntro" type="AudioStreamPlayer" parent="."]

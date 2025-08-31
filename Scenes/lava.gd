@@ -1,6 +1,6 @@
 extends Node2D
 
-var lava_offset := 1.0
+var lava_offset := 2.0
 
 @onready var lava_tile_map: TileMapLayer = $LavaTileMap
 
