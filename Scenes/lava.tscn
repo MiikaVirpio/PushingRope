@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=4 uid="uid://pxbb675w5j7e"]
 
 [ext_resource type="Texture2D" uid="uid://bblxvrd08x7ah" path="res://Assets/lava_tilemap.png" id="1_mtm6w"]
-[ext_resource type="Script" uid="uid://ce7j4pxbaahqp" path="res://Scenes/lava.gd" id="1_nbwm5"]
+[ext_resource type="Script" path="res://Scripts/lava.gd" id="1_nbwm5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nbwm5"]
 texture = ExtResource("1_mtm6w")

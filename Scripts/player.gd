@@ -6,13 +6,11 @@ enum STATES {IDLE,WALKING,JUMPING,HANGING}
 # Export variables
 @export var player_id := "p1"
 # Onready variables
+@onready var animated_sprite = $Animation
 # Variables
 var move_force := Configs.MOVE_FORCE
 var jump_force := Configs.JUMP_FORCE
 var player_state := STATES.IDLE
-@onready var animated_sprite = $Animation
-
-# Custom functions
 
 # Internal functions
 func _ready() -> void:
@@ -59,8 +57,6 @@ func _integrate_forces(_state: PhysicsDirectBodyState2D) -> void:
 func _process(_delta: float) -> void:
 	if player_state == STATES.WALKING:
 		animated_sprite.flip_h = sign(linear_velocity.x) < 0
-
-
 
 
 func _on_body_entered(body: Node) -> void:

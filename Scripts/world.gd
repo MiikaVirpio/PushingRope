@@ -9,7 +9,6 @@ const YouWon = preload("res://Scenes/you_won.tscn")
 # Export variables
 # Onready variables
 @onready var camera: Camera2D = $Camera
-@onready var rope: Node2D = $Rope
 @onready var lava: Node2D = $Lava
 @onready var death_timer: Timer = $DeathTimer
 @onready var song_gameplay: AudioStreamPlayer = $SongGameplay
@@ -75,7 +74,7 @@ func spawn_players() -> void:
 			child.queue_free()
 		if child.name.begins_with("Rope"):
 			child.queue_free()
-	rope = Rope.instantiate()
+	var rope = Rope.instantiate()
 	add_child(rope, true)
 	rope.global_position = rope_location
 	song_gameplay.stop()

@@ -1,7 +1,6 @@
 extends Node
 
 # Physics related configs
-
 ## Player configs
 const MOVE_FORCE := 10000.0
 const JUMP_FORCE := 5125.0
