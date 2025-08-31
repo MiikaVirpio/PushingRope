@@ -11,12 +11,16 @@ const YouDied = preload("res://Scenes/you_died.tscn")
 @onready var rope: Node2D = $Rope
 @onready var lava: Node2D = $Lava
 @onready var death_timer: Timer = $DeathTimer
+@onready var song_gameplay: AudioStreamPlayer = $SongGameplay
+@onready var song_gameplay_intro: AudioStreamPlayer = $SongGameplayIntro
 # Variables
 var camera_location: Vector2
 var camera_speed := Configs.CAMERA_SPEED
 var camera_timer := 0.0
 var lava_offset: float
 var rope_location: Vector2
+var dead: bool = false
+
 
 # Custom functions
 
@@ -31,7 +35,8 @@ func death(death_position: Vector2) -> void:
 	
 	you_died.global_position = camera.global_position
 
-	
+	dead = true
+
 	if death_timer.is_stopped():
 		death_timer.start()
 	
@@ -59,7 +64,10 @@ func spawn_players() -> void:
 	rope = Rope.instantiate()
 	add_child(rope)
 	rope.global_position = rope_location
-
+	song_gameplay.stop()
+	song_gameplay_intro.play()
+	song_gameplay.volume_db = 0.0
+	dead = false
 
 # Internal functions
 func _ready() -> void:
@@ -80,4 +88,13 @@ func _process(delta: float) -> void:
 	# Bind ESC to close game
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
-	
+
+	# If dead, fade out music in 2 secs
+	if dead:
+		song_gameplay.volume_db -= 10*delta
+		if song_gameplay.volume_db < -79:
+			song_gameplay.stop()
+
+
+func _on_song_gameplay_intro_finished() -> void:
+	song_gameplay.play()
