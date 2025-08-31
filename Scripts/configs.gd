@@ -22,3 +22,6 @@ const ROPE_BIAS := 0.4
 const CAMERA_SPEED := 7.0
 const CAMERA_ACCELERATION := 0.5
 const CAMERA_DELAY := 3.0
+
+# Cheat configs
+const SPAWN_POINT := 3
