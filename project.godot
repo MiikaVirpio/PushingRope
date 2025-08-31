@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PushingRope"
-run/main_scene="uid://4l614iapfxrg"
+run/main_scene="uid://baiur630rv0e5"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
